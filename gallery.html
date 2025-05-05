@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        body.fade-in { opacity: 1; }
+        body.fade-out { opacity: 0; }
+        .back-button {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 1px solid #eee;
+            color: #eee;
+            font-family: 'Poppins';
+            letter-spacing: 2px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: 0.3s;
+            z-index: 100;
+        }
+        .back-button:hover {
+            background-color: #eee;
+            color: #000;
+        }
+        h1 {
+            font-size: 2em;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .gallery-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 90vw;
+        }
+        .slot {
+            width: 150px;
+            height: 150px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px dashed #ccc;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #ccc;
+            transition: 0.3s ease;
+            backdrop-filter: brightness(1.2);
+        }
+        .slot:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border-color: #fff;
+        }
+        @media (max-width: 600px) {
+            .slot {
+                width: 120px;
+                height: 120px;
+                font-size: 12px;
+            }
+            h1 { font-size: 1.5em; }
+            .back-button {
+                padding: 8px 14px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <body class="no-intro-animation">
+    <a href="index.html" class="back-button">← Înapoi</a>
+    <h1>Galerie Temporară</h1>
+    <div class="gallery-items">
+        <div class="slot">Slot 1</div>
+        <div class="slot">Slot 2</div>
+        <div class="slot">Slot 3</div>
+        <!-- adaugă câte sloturi dorești -->
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const img = params.get("img");
+        if (img) {
+            document.body.style.backgroundImage = `url(${img})`;
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            requestAnimationFrame(() => {
+                document.body.classList.add('fade-in');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            const clickedInsideSlot = e.target.closest('.slot') !== null;
+            const clickedBackButton = e.target.closest('.back-button') !== null;
+            if (!clickedInsideSlot && !clickedBackButton) {
+                document.body.classList.remove('fade-in');
+                document.body.classList.add('fade-out');
+                setTimeout(() => {
+                    sessionStorage.setItem('returningFromGallery', 'true');
+                    window.location.href = 'index.html';
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>
+

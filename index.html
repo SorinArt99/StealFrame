@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StealFrame</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedIndex = parseInt(sessionStorage.getItem('activeSlideIndex'));
+            const returningFromGallery = sessionStorage.getItem('returningFromGallery') === 'true';
+
+            if (!isNaN(savedIndex)) {
+                const listItemDoom = document.querySelector('.carousel .list');
+                const thumbnailDoom = document.querySelector('.carousel .thumbnail');
+                for (let i = 0; i < savedIndex; i++) {
+                    listItemDoom.appendChild(listItemDoom.children[0]);
+                    thumbnailDoom.appendChild(thumbnailDoom.children[0]);
+                }
+                sessionStorage.removeItem('activeSlideIndex');
+            }
+        });
+        
+
+    </script>
+    
+
+        
+    
+    
+
+    
+    <header>
+        <nav>
+            <a href="#" id="homeBtn">Home</a>
+            <a href="#" id="contactBtn">Contacts</a>
+            <a href="#" id="infoBtn">Info</a>
+        </nav>
+    </header>
+
+    <div class="carousel">
+        <div class="list">
+            <div class="item" id="first-slide">
+                <img src="imagini/1.jpg">
+                <div class="content">
+                    <div class="author">PIET MONDRIAN</div>
+                    <div class="title">INTERIOR DESIGN</div>
+                    <div class="topic">FURNITURE INSPIRATION</div>
+                    <div class="des">
+                        Într-o lume unde designul devine expresia identității, ne întoarcem la un reper esențial din istoria artei moderne: Piet Mondrian. Artistul olandez a fost un pionier al mișcării De Stijl, transpunând viziunea sa radicală într-o estetică geometrică, simplă și extrem de puternică. Prin utilizarea liniilor drepte, a grilei negru pe alb și a culorilor primare – roșu, galben și albastru – Mondrian a reușit să creeze un limbaj vizual universal, clar și armonios.
+
+Această pagină se inspiră din acea viziune – unde fiecare piesă unică are locul ei bine definit, dar se integrează într-un ansamblu coerent.
+                    </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="imagini/2.jpg">
+                <div class="content">
+                    <div class="author">PHEIDIAS</div>
+                    <div class="title">TECTONIC</div>
+                    <div class="topic">SCULPTURE</div>
+                    <div class="des">
+                        Pheidias, unul dintre cei mai mari sculptori ai Greciei antice. Cunoscut pentru capodoperele sale colosale – statuia lui Zeus din Olympia și Atena Parthenos din Acropola Atenei – Pheidias a redefinit frumusețea și proporțiile în artă.
+
+Această pagină nu este doar un omagiu adus geniului său, ci și un spațiu viu, contemporan, unde artiștii moderni pot expune lucrări inspirate de spiritul artei clasice sau de propriile viziuni originale, Vinde creațiile lor într-un mediu dedicat pasiunii pentru sculptură, pictură și design.
+
+                    </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="imagini/3.jpg">
+                <div class="content">
+                    <div class="author">STEALFRAME</div>
+                    <div class="title">THE FUTURE OF DIGITAL ART</div>
+                    <div class="topic">DIGITAL ART</div>
+                    <div class="des">
+                        Tradiția se împletește cu inovația în acest spațiu dedicat artei digitale – o formă de exprimare care transcende limitele fizice și redefinește creativitatea. În spiritul lui Pheidias, care a împins sculptura clasică spre perfecțiune, încurajăm artiștii de azi să exploreze noi medii, tehnici și concepte.
+                        Îți oferim o platformă unde îți poți prezenta creațiile digitale și le poți scoate la licitație. Fiecare lucrare are șansa să devină parte dintr-o colecție unică, să inspire și să fie apreciată la adevărata sa valoare.
+                    </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="imagini/4.jpg">
+                <div class="content">
+                    <div class="author">LYSANDROS KELEOS</div>
+                    <div class="title">A HOME FOR INDEPENDENT MUSIC</div>
+                    <div class="topic">MUSIC</div>
+                    <div class="des">
+                        EchoSphere devine spațiul în care creatorii de muzică pot da glas viselor lor. Inspirată de viziunea autorului Lysandros Keleos, această secțiune este dedicată artiștilor care compun, interpretează și experimentează. Producători, compozitori, beatmakeri, vocaliști – indiferent de stil sau experiență, locul tău este aici, incarcă creațiile tale, lasă-le să fie descoperite și aduse la viață prin vânzare, promovare sau colaborare, Îți oferim o platformă dinamică, deschisă către viitorul muzicii.
+                    </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--thumbnail-->
+        <div class="thumbnail">
+            
+            <div class="item">
+                <img src="imagini/2.jpg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="des">
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="imagini/3.jpg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="des">
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="imagini/4.jpg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="des">
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="imagini/1.jpg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="des">
+                        Description
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--arrows-->
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <div class="time"></div>
+    
+    </div>
+
+
+    <div id="overlay" class="hidden">
+        <div class="modal-box" id="modalContent"></div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.querySelectorAll('.buttons button').forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                sessionStorage.setItem('activeSlideIndex', index);
+                const slide = btn.closest('.item');
+                const imgSrc = slide.querySelector('img').getAttribute('src');
+                window.location.href = `gallery.html?img=${encodeURIComponent(imgSrc)}&slide=${index}`;
+            });
+        });
+    </script>
+</body>
+</html>
+
+    
+
+
+</body>
+</html>
+
+
