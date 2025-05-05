@@ -327,9 +327,18 @@ header a{
 @media screen and (max-width: 678px){
     .carousel .list .item .content{
         padding: 0;
+        top: 10%;
     }
     .carousel .list .item .content .title{
-        font-size: 30px;
+        font-size: 24px;
+    }
+    .carousel .list .item .content .topic{
+        font-size: 20px;
+    }
+    .carousel .list .item .content .des{
+        font-size: 14px;
+        max-height: 30vh;
+        overflow-y: auto;
     }
 }
 
